@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-udp2raw
-PKG_VERSION:=1.0.0
-PKG_RELEASE:=4
+PKG_VERSION:=1.0.1
+PKG_RELEASE:=5
 
 PKG_LICENSE:=GPLv3
 PKG_LICENSE_FILES:=LICENSE
@@ -66,6 +66,8 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_CONF) ./files/root/etc/config/udp2raw $(1)/etc/config/udp2raw
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/root/etc/init.d/udp2raw $(1)/etc/init.d/udp2raw
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) ./files/root/usr/bin/udp2raw_check_domain_loop $(1)/usr/bin/udp2raw_check_domain_loop
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/root/etc/uci-defaults/luci-udp2raw $(1)/etc/uci-defaults/luci-udp2raw
 endef

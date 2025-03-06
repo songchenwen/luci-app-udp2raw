@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+    /etc/init.d/udp2raw check_domain
+    sleep 60
+done
