@@ -161,9 +161,9 @@ validate_server_section() {
 		'auto_rule:bool:1' \
 		'keep_rule:bool:0' \
 		'seq_mode:range(0,4)' \
-		'respawn_threshold:range(1,3600):600' \
-		'respawn_timeout:range(1,3600):60' \
-		'respawn_retry:range(1,1000):120' \
+		'respawn_threshold:range(0,3600):0' \
+		'respawn_timeout:range(0,3600):60' \
+		'respawn_retry:range(1,65534):120' \
 		'lower_level:string' \
 		'source_ip:ipaddr' \
 		'source_port:port' \

@@ -78,15 +78,15 @@ o.datatype = "range(0,4)"
 o.placeholder = "3"
 
 o = s:option(Value, "respawn_threshold", translate("Respawn Threshold"), translate("if process terminates sooner than Respawn Threshold, it is considered crashed and after Respawn Max Retries the service is stopped. However, if it terminates later than Respawn Threshold, it would be respawned indefinitely."))
-o.datatype = "range(1,3600)"
-o.placeholder = "600"
+o.datatype = "range(0,3600)"
+o.placeholder = "0"
 
 o = s:option(Value, "respawn_timeout", translate("Respawn Timeout"), translate("Process respawn wait secs"))
-o.datatype = "range(1,3600)"
+o.datatype = "range(0,3600)"
 o.placeholder = "60"
 
 o = s:option(Value, "respawn_retry", translate("Respawn Max Retries"))
-o.datatype = "range(1,1000)"
+o.datatype = "range(1,65534)"
 o.placeholder = "120"
 
 o = s:option(Value, "lower_level", translate("Lower Level"), translate("Send packets at OSI level 2, format: \"eth0#00:11:22:33:44:55\", or \"auto\"."))
