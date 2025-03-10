@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-udp2raw
-PKG_VERSION:=1.0.1
-PKG_RELEASE:=5
+PKG_VERSION:=1.0.2
+PKG_RELEASE:=9
 
 PKG_LICENSE:=GPLv3
 PKG_LICENSE_FILES:=LICENSE
@@ -41,16 +41,8 @@ endef
 define Build/Compile
 endef
 
-define Package/$(PKG_NAME)/postinst
-#!/bin/sh
-if [ -z "$${IPKG_INSTROOT}" ]; then
-	( . /etc/uci-defaults/luci-udp2raw ) && rm -f /etc/uci-defaults/luci-udp2raw
-fi
-exit 0
-endef
-
 define Package/$(PKG_NAME)/conffiles
-	/etc/config/udp2raw
+/etc/config/udp2raw
 endef
 
 define Package/$(PKG_NAME)/install
@@ -68,8 +60,6 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) ./files/root/etc/init.d/udp2raw $(1)/etc/init.d/udp2raw
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) ./files/root/usr/bin/udp2raw_check_domain_loop $(1)/usr/bin/udp2raw_check_domain_loop
-	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/root/etc/uci-defaults/luci-udp2raw $(1)/etc/uci-defaults/luci-udp2raw
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

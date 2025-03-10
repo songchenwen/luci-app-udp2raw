@@ -31,8 +31,11 @@ msgstr "未运行"
 msgid "General Settings"
 msgstr "基本设置"
 
-msgid "Server"
-msgstr "服务器"
+msgid "Program Mode"
+msgstr "运行模式"
+
+msgid "Server (-r)"
+msgstr "服务器 (-r)"
 
 msgid "Disable"
 msgstr "停用"
@@ -61,8 +64,8 @@ msgstr "别名(可选)"
 msgid "Server Port"
 msgstr "服务器端口"
 
-msgid "Local Listen Host"
-msgstr "本地监听地址"
+msgid "Local Listen Host (-l)"
+msgstr "本地监听地址 (-l)"
 
 msgid "Local Listen Port"
 msgstr "本地监听端口"

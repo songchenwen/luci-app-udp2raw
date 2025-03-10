@@ -1,6 +1,11 @@
 local m, s, o
 local sid = arg[1]
 
+local program_modes = {
+	"client",
+	"server",
+}
+
 local raw_modes = {
 	"faketcp",
 	"udp",
@@ -35,7 +40,12 @@ s.addremove = false
 
 o = s:option(Value, "alias", translate("Alias(optional)"))
 
-o = s:option(Value, "server_addr", translate("Server"))
+o = s:option(ListValue, "program_mode", translate("Program Mode"))
+for _, v in ipairs(program_modes) do o:value(v, v:lower()) end
+o.default = "client"
+o.rmempty = false
+
+o = s:option(Value, "server_addr", translate("Server (-r)"))
 o.datatype = "host"
 o.rmempty = false
 
@@ -43,7 +53,7 @@ o = s:option(Value, "server_port", translate("Server Port"))
 o.datatype = "port"
 o.placeholder = "8080"
 
-o = s:option(Value, "listen_addr", translate("Local Listen Host"))
+o = s:option(Value, "listen_addr", translate("Local Listen Host (-l)"))
 o.datatype = "ipaddr"
 o.placeholder = "127.0.0.1"
 
